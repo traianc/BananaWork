@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BananaWork - Munca ta valorează! 🍌</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #FFF9E6 0%, #FFE5B4 100%);
+            color: #333;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 20px rgba(255, 165, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            font-size: 50px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .logo-text h1 {
+            font-size: 36px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .logo-text p {
+            font-size: 14px;
+            color: #fff;
+            opacity: 0.9;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav button {
+            background: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            color: #FF8C00;
+        }
+
+        nav button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            background: #FFF5E6;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            color: #FF8C00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(255, 140, 0, 0.2);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .manifest {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(255, 140, 0, 0.2);
+            margin: 40px auto;
+            max-width: 800px;
+            border: 3px solid #FFD700;
+        }
+
+        .manifest h3 {
+            color: #FF8C00;
+            font-size: 28px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .manifest-items {
+            display: grid;
+            gap: 15px;
+            text-align: left;
+        }
+
+        .manifest-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #FFF9E6;
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid #FFD700;
+        }
+
+        .manifest-item span {
+            font-size: 24px;
+        }
+
+        /* TABS */
+        .tabs {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+            justify-content: center;
+        }
+
+        .tab-button {
+            background: white;
+            border: 2px solid #FFD700;
+            padding: 15px 40px;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            color: #FF8C00;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* HOW IT WORKS */
+        .flow-steps {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .flow-step {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background: #FFF9E6;
+            border-radius: 15px;
+            border-left: 5px solid #FFD700;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .flow-step:hover {
+            transform: translateX(10px);
+            box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            color: #FF8C00;
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .step-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* AI TRACKING */
+        .ai-levels {
+            display: grid;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .ai-level {
+            background: white;
+            border: 2px solid #FFE5B4;
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .level-badge {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        /* CALCULATOR */
+        .calculator {
+            background: #FFF9E6;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+            border: 2px solid #FFD700;
+        }
+
+        .calculator-input {
+            display: grid;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            display: grid;
+            gap: 10px;
+        }
+
+        .input-group label {
+            font-weight: bold;
+            color: #FF8C00;
+        }
+
+        .input-group input {
+            padding: 12px;
+            border: 2px solid #FFD700;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .results {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #FFE5B4;
+        }
+
+        .result-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            color: #FF8C00;
+            font-size: 18px;
+        }
+
+        /* PRICING */
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .pricing-card {
+            background: white;
+            border: 3px solid #FFD700;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .pricing-card.featured {
+            border-color: #FF8C00;
+            transform: scale(1.05);
+        }
+
+        .price {
+            font-size: 48px;
+            color: #FF8C00;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .price-note {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #FFE5B4;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(255, 140, 0, 0.4);
+        }
+
+        /* COMPARISON TABLE */
+        .comparison-table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .comparison-table th {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: 15px;
+            border-bottom: 1px solid #FFE5B4;
+        }
+
+        .comparison-table tr:hover {
+            background: #FFF9E6;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid #FFE5B4;
+        }
+
+        .faq-question {
+            background: #FFF9E6;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #FF8C00;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: #FFE5B4;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            display: none;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+
+        footer h3 {
+            color: #FFD700;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-icon">🍌</div>
+                <div class="logo-text">
+                    <h1>BananaWork</h1>
+                    <p>Munca ta valorează!</p>
+                </div>
+            </div>
+            <nav>
+                <button onclick="scrollToSection('how-it-works')">Cum funcționează</button>
+                <button onclick="scrollToSection('pricing')">Prețuri</button>
+                <button onclick="scrollToSection('faq')">FAQ</button>
+                <button style="background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%); color: white;">Înscrie-te GRATUIT</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <h2>🍌 Omul înainte de toate! Nu companiile. Nu AI-ul. OMUL.</h2>
+        <p>Prima platformă care pune EXPERIENȚA ta PRACTICĂ înaintea oricărei diplome.</p>
+
+        <div class="manifest">
+            <h3>🎯 Manifestul BananaWork</h3>
+            <div class="manifest-items">
+                <div class="manifest-item">
+                    <span>👷</span>
+                    <div>
+                        <strong>10 ani ca barman în Spania</strong> valorează mai mult decât orice diplomă de teorie.
+                        Aici, EXPERIENȚA ta contează!
+                    </div>
+                </div>
+                <div class="manifest-item">
+                    <span>🔒</span>
+                    <div>
+                        <strong>Confidențialitate TOTALĂ</strong> - Doar angajatorii verificați te văd.
+                        Colegii tăi NU știu că îți cauți de muncă.
+                    </div>
+                </div>
+                <div class="manifest-item">
+                    <span>💰</span>
+                    <div>
+                        <strong>GRATUIT 100%</strong> pentru tine! Plătești doar dacă ești angajat -
+                        un mic comision (10%) primele 6 luni. După aceea, salariul INTEGRAL!
+                    </div>
+                </div>
+                <div class="manifest-item">
+                    <span>🤝</span>
+                    <div>
+                        <strong>Transparent & Corect</strong> - Știi EXACT cine te caută, ce oferă,
+                        și cât vei primi. Zero surprize!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TABS -->
+    <section class="tabs">
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="showTab('how-it-works')">Cum funcționează</button>
+            <button class="tab-button" onclick="showTab('ai-tracking')">🤖 AI Asistent</button>
+            <button class="tab-button" onclick="showTab('calculator')">🧮 Calculator</button>
+            <button class="tab-button" onclick="showTab('pricing')">💰 Prețuri</button>
+            <button class="tab-button" onclick="showTab('comparison')">⚖️ Comparație</button>
+            <button class="tab-button" onclick="showTab('faq')">❓ FAQ</button>
+        </div>
+
+        <!-- TAB 1: HOW IT WORKS -->
+        <div id="how-it-works" class="tab-content active">
+            <h2 style="color: #FF8C00; margin-bottom: 30px; text-align: center;">🍌 Cum funcționează BananaWork?</h2>
+
+            <div class="flow-steps">
+                <div class="flow-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>📝 Te înscrii GRATUIT</h4>
+                        <p>Creezi profilul tău - adaugi experiența PRACTICĂ (nu doar diplome!). Descrii ce știi să faci, unde ai lucrat, ce competențe ai. 100% GRATUIT pentru tine!</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>🔍 Companiile TE caută pe TINE</h4>
+                        <p>Angajatorii verificați caută candidați pe criterii (experiență, limbi, competențe). Doar EI pot vedea profilurile - colegii tăi NU știu că îți cauți job!</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>🤖 AI-ul detectează INTERES</h4>
+                        <p>Când o companie te vizualizează de 3+ ori, îți salvează profilul sau inițiază conversație, AI-ul nostru trimite ALERT: "🎉 Compania X e interesată de tine!"</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4>💬 Comunicare ASISTATĂ de AI</h4>
+                        <p>AI-ul facilitează conversația: traduce mesaje, sugerează întrebări, verifică ofertele. Tu decizi dacă continui sau nu!</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4>📄 Contract automat TRANSPARENT</h4>
+                        <p>Când compania trimite ofertă (ex: 2,500€/lună), AI generează contract tripartit:<br>
+                        ✅ <strong>TU primești:</strong> 2,250€/lună (90%)<br>
+                        ✅ <strong>BananaWork:</strong> 250€/lună (10%) - primele 6 luni<br>
+                        ✅ <strong>Compania plătește:</strong> 2,500€/lună (ca înainte!)</p>
+                    </div>
+                </div>
+
+                <div class="flow-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4>🎉 După 6 luni: SALARIUL INTEGRAL!</h4>
+                        <p>După primele 6 luni, primești salariul COMPLET (2,500€/lună). Comisionul nostru se oprește. Tu ai job stabil, noi ți-am dat șansa!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 2: AI TRACKING -->
+        <div id="ai-tracking" class="tab-content">
+            <h2 style="color: #FF8C00; margin-bottom: 30px; text-align: center;">🤖 Cum detectează AI-ul interesul?</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Inteligența noastră artificială monitorizează FIECARE interacțiune și îți trimite notificări când detectează interes serios!</p>
+
+            <div class="ai-levels">
+                <div class="ai-level">
+                    <div class="level-badge">Nivel 1: 10%</div>
+                    <div>
+                        <strong>Prima vizualizare</strong><br>
+                        Compania a deschis profilul tău pentru prima dată. Încă explorează.
+                    </div>
+                </div>
+
+                <div class="ai-level">
+                    <div class="level-badge">Nivel 2: 30%</div>
+                    <div>
+                        <strong>3+ vizualizări</strong><br>
+                        🔔 <em>Notificare:</em> "Compania X a revăzut profilul tău de 3 ori! Interes serios!"
+                    </div>
+                </div>
+
+                <div class="ai-level">
+                    <div class="level-badge">Nivel 3: 60%</div>
+                    <div>
+                        <strong>Profil salvat</strong><br>
+                        🔔 <em>Notificare:</em> "Compania X te-a adăugat în favorite! Match potențial!"
+                    </div>
+                </div>
+
+                <div class="ai-level">
+                    <div class="level-badge">Nivel 4: 85%</div>
+                    <div>
+                        <strong>Conversație inițiată</strong><br>
+                        🔔 <em>Notificare:</em> "Compania X vrea să discute cu tine! Răspunde acum!"
+                    </div>
+                </div>
+
+                <div class="ai-level">
+                    <div class="level-badge">Nivel 5: 100%</div>
+                    <div>
+                        <strong>Ofertă salarială trimisă</strong><br>
+                        🔔 <em>Notificare:</em> "🎉 FELICITĂRI! Compania X îți oferă 2,500€/lună! Acceptă contractul!"<br>
+                        <em style="color: #FF8C00;">→ AI generează automat contractul tripartit transparent</em>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 3: CALCULATOR -->
+        <div id="calculator" class="tab-content">
+            <h2 style="color: #FF8C00; margin-bottom: 30px; text-align: center;">🧮 Calculator Transparent</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 30px;">Vezi EXACT cine primește cât. Zero surprize!</p>
+
+            <div class="calculator">
+                <div class="calculator-input">
+                    <div class="input-group">
+                        <label>💰 Salariul oferit de companie (EUR/lună):</label>
+                        <input type="number" id="salary" value="2500" oninput="calculateCommission()">
+                    </div>
+
+                    <div class="input-group">
+                        <label>📊 Comision BananaWork (%):</label>
+                        <input type="number" id="commission" value="10" min="5" max="20" oninput="calculateCommission()">
+                    </div>
+
+                    <div class="input-group">
+                        <label>📅 Luni cu comision:</label>
+                        <input type="number" id="months" value="6" min="1" max="12" oninput="calculateCommission()">
+                    </div>
+                </div>
+
+                <div class="results">
+                    <div class="result-row">
+                        <span>💼 Compania plătește (pe lună):</span>
+                        <span id="companyPays" style="font-weight: bold; color: #FF8C00;">2,500 EUR</span>
+                    </div>
+                    <div class="result-row">
+                        <span>👤 Angajatul primește (primele <span id="monthsDuration">6</span> luni):</span>
+                        <span id="employeeReceives" style="font-weight: bold; color: #4CAF50;">2,250 EUR/lună</span>
+                    </div>
+                    <div class="result-row">
+                        <span>🍌 BananaWork primește (pe lună):</span>
+                        <span id="bananaworkReceives" style="font-weight: bold; color: #FF8C00;">250 EUR/lună</span>
+                    </div>
+                    <div class="result-row" style="background: #FFF9E6; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                        <span style="font-size: 20px;">🎉 După <span id="monthsAfter">6</span> luni - Angajatul primește:</span>
+                        <span id="fullSalary" style="font-size: 24px; color: #4CAF50;">2,500 EUR/lună</span>
+                    </div>
+                    <div class="result-row" style="border-top: 2px solid #FFD700; margin-top: 15px; padding-top: 15px;">
+                        <span>💰 TOTAL BananaWork (<span id="totalMonths">6</span> luni):</span>
+                        <span id="totalCommission" style="font-size: 22px; color: #FF8C00;">1,500 EUR</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 4: PRICING -->
+        <div id="pricing" class="tab-content">
+            <h2 style="color: #FF8C00; margin-bottom: 30px; text-align: center;">💰 Prețuri BananaWork</h2>
+
+            <div class="pricing-cards">
+                <!-- PENTRU CANDIDAȚI -->
+                <div class="pricing-card featured">
+                    <h3 style="color: #FF8C00; font-size: 28px;">👷 Pentru CANDIDAȚI</h3>
+                    <div class="price">GRATUIT</div>
+                    <div class="price-note">100% gratuit întotdeauna!</div>
+
+                    <ul class="features-list">
+                        <li>✅ Creează profil detaliat</li>
+                        <li>✅ Adaugă experiență practică nelimitată</li>
+                        <li>✅ Primești notificări AI când ești căutat</li>
+                        <li>✅ Vezi cine te-a vizualizat</li>
+                        <li>✅ Comunicare asistată de AI</li>
+                        <li>✅ Contract automat transparent</li>
+                        <li>✅ Confidențialitate garantată</li>
+                    </ul>
+
+                    <div style="background: #FFF9E6; padding: 15px; border-radius: 10px; margin-top: 20px; border: 2px solid #FFD700;">
+                        <strong style="color: #FF8C00;">⚠️ Comision DOAR dacă ești angajat:</strong><br>
+                        10% din salariu primele 6 luni<br>
+                        <small style="color: #666;">Ex: salariu 2,500€ → primești 2,250€/lună × 6 luni</small><br>
+                        <strong style="color: #4CAF50;">După 6 luni: SALARIUL INTEGRAL!</strong>
+                    </div>
+
+                    <button class="cta-button">Înscrie-te ACUM</button>
+                </div>
+
+                <!-- PENTRU ANGAJATORI -->
+                <div class="pricing-card">
+                    <h3 style="color: #FF8C00; font-size: 28px;">🏢 Pentru ANGAJATORI</h3>
+                    <div class="price">0 EUR*</div>
+                    <div class="price-note">*Plătești doar la angajare reușită</div>
+
+                    <ul class="features-list">
+                        <li>✅ Căutare nelimitată candidați</li>
+                        <li>✅ Filtre avansate (experiență, limbi, etc.)</li>
+                        <li>✅ Acces profil complet candidați</li>
+                        <li>✅ Comunicare asistată AI</li>
+                        <li>✅ Contract automat generat</li>
+                        <li>✅ Dashboard analytics</li>
+                        <li>✅ Garanție 3 luni (înlocuitor gratuit)</li>
+                    </ul>
+
+                    <div style="background: #FFF9E6; padding: 15px; border-radius: 10px; margin-top: 20px; border: 2px solid #FFD700;">
+                        <strong style="color: #FF8C00;">💰 Modelul Success Fee:</strong><br>
+                        <strong>0 EUR plătești din buzunar!</strong><br>
+                        Comisionul (10%) vine din salariul angajatului<br>
+                        <small style="color: #666;">Ex: oferă 2,500€/lună → tu plătești 2,500€/lună (ca înainte!)</small><br>
+                        <small style="color: #666;">Angajatul primește 2,250€, BananaWork 250€</small>
+                    </div>
+
+                    <button class="cta-button">Devino Partener</button>
+                </div>
+
+                <!-- OPȚIUNI PREMIUM -->
+                <div class="pricing-card">
+                    <h3 style="color: #FF8C00; font-size: 28px;">⭐ Servicii PREMIUM</h3>
+                    <div class="price-note" style="margin-top: 20px;">Opționale - la cerere</div>
+
+                    <ul class="features-list" style="margin-top: 30px;">
+                        <li>🎥 Video CV profesional: <strong>25 EUR</strong></li>
+                        <li>🔍 Verificare background: <strong>35 EUR</strong></li>
+                        <li>🌍 Traducere CV (3 limbi): <strong>45 EUR</strong></li>
+                        <li>📸 Sesiune foto profesională: <strong>60 EUR</strong></li>
+                        <li>⭐ Profil promovat (apari sus): <strong>15 EUR/lună</strong></li>
+                        <li>🎓 Acces cursuri certificare: <strong>50-200 EUR</strong></li>
+                    </ul>
+
+                    <div style="background: #FFF9E6; padding: 15px; border-radius: 10px; margin-top: 20px; border: 2px solid #FFD700;">
+                        <strong style="color: #FF8C00;">🎁 BONUS pentru Candidați:</strong><br>
+                        Primul Video CV = GRATUIT!<br>
+                        Verificare background = -50% la prima angajare
+                    </div>
+
+                    <button class="cta-button">Vezi Pachete</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- TAB 5: COMPARISON -->
+        <div id="comparison" class="tab-content">
+            <h2 style="color: #FF8C00; margin-bottom: 30px; text-align: center;">⚖️ BananaWork vs Agenții Tradiționale</h2>
+
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Caracteristică</th>
+                        <th>🍌 BananaWork</th>
+                        <th>🏢 Agenții Tradiționale</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Cost pentru candidat</strong></td>
+                        <td style="color: #4CAF50; font-weight: bold;">GRATUIT (comision doar la angajare)</td>
+                        <td style="color: #f44336;">Adesea 100-500 EUR taxe înregistrare</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cost pentru angajator</strong></td>
+                        <td style="color: #4CAF50; font-weight: bold;">0 EUR (comisionul vine din salariul angajatului)</td>
+                        <td style="color: #f44336;">2,000-5,000 EUR per angajare</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Comision</strong></td>
+                        <td>10% × 6 luni = ~1,500 EUR</td>
+                        <td>1 salariu întreg (2,500 EUR+) plătit de angajator</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Transparență</strong></td>
+                        <td style="color: #4CAF50; font-weight: bold;">100% - vezi exact cine câștigă cât</td>
+                        <td style="color: #f44336;">Taxe ascunse, comisioane necomunicate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Confidențialitate</strong></td>
+                        <td style="color: #4CAF50; font-weight: bold;">TOTALĂ - doar angajatori verificați</td>
+                        <td style="color: #f44336;">CV-ul circulă la sute de firme</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Experiență fără diplomă</strong></td>
+                        <td style="color: #4CAF50; font-weight: bold;">✅ VALORIZATĂ la maximum!</td>
+                        <td style="color: #f44336;">❌ Discriminare - cer diplome obligatoriu</td>
+                    </tr>
+                    <tr>
+                        <td><strong>AI Asistent</strong></td>
+                        <td style="color: #4CAF50; font-weight: bold;">✅ Detectează interes, asistă comunicare</td>
+                        <td style="color: #f44336;">❌ Comunicare manuală, întârzieri</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Notificări real-time</strong></td>
+                        <td style="color: #4CAF50; font-weight: bold;">✅ Vezi imediat cine te caută</td>
+                        <td style="color: #f44336;">❌ Te sună după săptămâni</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Garanție</strong></td>
+                        <td style="color: #4CAF50; font-weight: bold;">✅ 3 luni - înlocuitor gratuit</td>
+                        <td style="color: orange;">⚠️ Rareori oferă garanții</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Contract</strong></td>
+                        <td style="color: #4CAF50; font-weight: bold;">✅ Automat generat, transparent</td>
+                        <td style="color: #f44336;">❌ Birocratic, luni de așteptare</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div style="background: #FFF9E6; padding: 30px; border-radius: 15px; margin-top: 40px; border: 3px solid #FFD700; text-align: center;">
+                <h3 style="color: #FF8C00; margin-bottom: 20px;">💡 De ce BananaWork este diferit?</h3>
+                <p style="font-size: 18px; line-height: 1.8; color: #333;">
+                    <strong>Agenții tradiționale</strong> iau bani MULT din AMBELE părți și discriminează pe bază de diplome.<br>
+                    <strong style="color: #FF8C00;">BananaWork</strong> pune OMUL ÎN CENTRU, valorizează EXPERIENȚA practică, și ia un comision MIC doar când TU ești fericit cu job-ul tău!<br>
+                    <strong style="color: #4CAF50;">Win-win-win pentru TOȚI!</strong>
+                </p>
+            </div>
+        </div>
+
+        <!-- TAB 6: FAQ -->
+        <div id="faq" class="tab-content">
+            <h2 style="color: #FF8C00; margin-bottom: 30px; text-align: center;">❓ Întrebări Frecvente (FAQ)</h2>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    De ce să plătesc 10% din salariu? Nu pot căuta singur?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Desigur că poți căuta singur!</strong> Dar gândește-te:</p>
+                    <ul>
+                        <li>✅ Câte luni cauți și nu găsești? (pierdere 2,500€/lună × luni de căutare)</li>
+                        <li>✅ Stresul, CV-urile trimise fără răspuns, interviurile eșuate</li>
+                        <li>✅ BananaWork îți găsește JOB în câteva zile, nu luni!</li>
+                        <li>✅ 10% × 6 luni = 1,500€ vs 3 luni căutare pierdută = 7,500€ pierdere</li>
+                    </ul>
+                    <p><strong style="color: #4CAF50;">Rezultat: CÂȘTIGI 6,000 EUR folosind BananaWork!</strong></p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Cum știu că nu mă înșelați cu salariul?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Transparență 100%!</strong></p>
+                    <ul>
+                        <li>✅ Contractul tripartit specifică CLAR: Compania plătește X, tu primești Y (90%), BananaWork Z (10%)</li>
+                        <li>✅ Primești adeverința de salariu de la companie cu suma TOTALĂ</li>
+                        <li>✅ BananaWork nu poate manipula nimic - plata vine DIRECT de la angajator</li>
+                        <li>✅ După 6 luni, primești INTEGRAL salariul (dovadă în contract)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Dacă mă concediază în 2 luni, tot plătesc comision?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>NU! Avem garanție 3 luni!</strong></p>
+                    <ul>
+                        <li>✅ Dacă ești concediat în primele 3 luni (fără vina ta), BananaWork îți găsește ALTUL GRATUIT</li>
+                        <li>✅ Nu plătești comision pentru lunile NELUCRATE</li>
+                        <li>✅ Dacă TU pleci din proprie inițiativă, contractul se oprește (fără penalizări)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Colegii mei vor ști că îmi caut de muncă?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>NU! Confidențialitate TOTALĂ!</strong></p>
+                    <ul>
+                        <li>✅ Doar ANGAJATORI VERIFICAȚI pot vedea profiluri</li>
+                        <li>✅ Candidații NU pot căuta alți candidați</li>
+                        <li>✅ Profilul tău e PRIVAT - ca pe un cont închis de Instagram</li>
+                        <li>✅ Poți seta "NU mă arăta companiei X" (angajatorul actual)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Nu am diplomă - pot folosi BananaWork?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>DA! DE ACEEA EXISTĂ BananaWork!</strong></p>
+                    <ul>
+                        <li>✅ Noi punem EXPERIENȚA ta practică ÎNAINTE de diplome!</li>
+                        <li>✅ 10 ani ca barman în Spania > diplomă de barman din România</li>
+                        <li>✅ Secțiunea "Educație" este OPȚIONALĂ!</li>
+                        <li>✅ Angajatorii te aleg pe bază de competențe REALE, nu hârtii</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Cum funcționează AI-ul? Înlocuiește oamenii?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>NU! AI-ul ASISTĂ, nu ÎNLOCUIEȘTE!</strong></p>
+                    <ul>
+                        <li>✅ AI detectează când o companie e interesată (vizualizări, salvări)</li>
+                        <li>✅ Îți trimite NOTIFICĂRI real-time: "Compania X te caută!"</li>
+                        <li>✅ Asistă comunicarea: traduce mesaje, sugerează răspunsuri</li>
+                        <li>✅ Generează contractul automat când AMÂNDOI sunteți de acord</li>
+                        <li>✅ TU decizi TOTUL - AI-ul doar te ajută să fii mai rapid și eficient!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Cât de repede găsesc job prin BananaWork?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Depinde de profilul tău, dar mult mai REPEDE decât singur!</strong></p>
+                    <ul>
+                        <li>✅ Profile complete cu experiență = 7-14 zile în medie</li>
+                        <li>✅ Domenii cu cerere mare (HoReCa, construcții, IT) = 3-7 zile</li>
+                        <li>✅ AI-ul matchează automat candidați-angajatori = 10× mai rapid</li>
+                        <li>✅ Primești notificări INSTANT când o companie te caută</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    Este legal modelul cu comision din salariul angajatului?
+                    <span>▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>DA, 100% LEGAL!</strong></p>
+                    <ul>
+                        <li>✅ În contract tripartit, TOATE părțile semnează în cunoștință de cauză</li>
+                        <li>✅ Similar cu bonusurile, comisioanele, primele - sunt deduse legal</li>
+                        <li>✅ Angajatorul plătește BRUTUL întreg (ex: 2,500€), distribuția e clară</li>
+                        <li>✅ În Germania, acest model (Zeitarbeit) e folosit de 20+ ani</li>
+                        <li>✅ Consultat cu avocat specialist dreptul muncii - totul e conform legii</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <h3>🍌 BananaWork - Munca ta valorează!</h3>
+        <p>Omul înainte de toate. Nu companiile. Nu AI-ul. OMUL.</p>
+        <p style="margin-top: 20px; opacity: 0.7;">© 2024 BananaWork. Toate drepturile rezervate.</p>
+    </footer>
+
+    <script>
+        // TAB SWITCHING
+        function showTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // Remove active from all buttons
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected tab
+            document.getElementById(tabId).classList.add('active');
+
+            // Activate button
+            event.target.classList.add('active');
+        }
+
+        // SCROLL TO SECTION
+        function scrollToSection(sectionId) {
+            showTab(sectionId);
+            document.querySelector('.tabs').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // CALCULATOR
+        function calculateCommission() {
+            const salary = parseFloat(document.getElementById('salary').value) || 0;
+            const commission = parseFloat(document.getElementById('commission').value) || 0;
+            const months = parseInt(document.getElementById('months').value) || 0;
+
+            const bananaworkMonthly = (salary * commission / 100);
+            const employeeMonthly = salary - bananaworkMonthly;
+            const totalCommission = bananaworkMonthly * months;
+
+            document.getElementById('companyPays').textContent = salary.toFixed(0) + ' EUR';
+            document.getElementById('employeeReceives').textContent = employeeMonthly.toFixed(0) + ' EUR/lună';
+            document.getElementById('bananaworkReceives').textContent = bananaworkMonthly.toFixed(0) + ' EUR/lună';
+            document.getElementById('fullSalary').textContent = salary.toFixed(0) + ' EUR/lună';
+            document.getElementById('totalCommission').textContent = totalCommission.toFixed(0) + ' EUR';
+
+            // Update month displays
+            document.querySelectorAll('#monthsDuration, #monthsAfter, #totalMonths').forEach(el => {
+                el.textContent = months;
+            });
+        }
+
+        // FAQ TOGGLE
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const isActive = answer.classList.contains('active');
+
+            // Close all FAQs
+            document.querySelectorAll('.faq-answer').forEach(ans => {
+                ans.classList.remove('active');
+            });
+
+            // Toggle current FAQ
+            if (!isActive) {
+                answer.classList.add('active');
+            }
+        }
+
+        // Initialize calculator
+        calculateCommission();
+    </script>
+</body>
+</html>
