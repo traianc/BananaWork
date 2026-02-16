@@ -1067,5 +1067,27 @@
         // Initialize calculator
         calculateCommission();
     </script>
+    <section id="inscriere" style="padding:60px 20px; text-align:center; background:#FFF9E6;">
+    <h2 style="color:#FF8C00;">Înscrie-te GRATUIT 🍌</h2>
+    <p>Lasă emailul și te anunțăm când lansăm platforma.</p>
+
+    <form name="inscriere" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="inscriere" />
+
+        <input type="text" name="nume" placeholder="Numele tău"
+            style="padding:12px; margin:10px; border-radius:8px; border:2px solid #FFD700;" required>
+
+        <input type="email" name="email" placeholder="Emailul tău"
+            style="padding:12px; margin:10px; border-radius:8px; border:2px solid #FFD700;" required>
+
+        <br>
+
+        <button type="submit"
+            style="padding:14px 30px; background:#FFA500; color:white; border:none; border-radius:25px; font-weight:bold;">
+            Mă înscriu
+        </button>
+    </form>
+</section>
+
 </body>
 </html>
